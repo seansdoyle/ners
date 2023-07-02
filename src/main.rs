@@ -10,7 +10,6 @@ extern crate lazy_static;
 
 fn main() {
     let mut nes_cpu = cpu::CPU::new();
-    println!("Initial CPU state: ");
     nes_cpu.load_and_run(vec![0xa9, 0xc0, 0xaa, 0xe8, 0x00]);
     nes_cpu.print_cpu_state();
     println!("CPU emulator done.");
