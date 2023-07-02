@@ -137,30 +137,34 @@ impl CPU {
         println!("");
     }
 
-    pub fn lda(&mut self, mode: &AddressingMode){
+    fn adc(&mut self, mode: &AddressingMode){
+        todo!("implment adc.");
+    }
+
+    fn lda(&mut self, mode: &AddressingMode){
         let addr = self.get_op_addr_from_mode(mode);
         self.a_register = self.read_memory(addr);
         self.update_status_register_flags(self.a_register);
     }
 
-    pub fn ldx(&mut self, mode: &AddressingMode){
+    fn ldx(&mut self, mode: &AddressingMode){
         let addr = self.get_op_addr_from_mode(mode);
         self.x_register = self.read_memory(addr);
         self.update_status_register_flags(self.x_register);
     }
 
-    pub fn ldy(&mut self, mode: &AddressingMode){
+    fn ldy(&mut self, mode: &AddressingMode){
         let addr = self.get_op_addr_from_mode(mode);
         self.y_register = self.read_memory(addr);
         self.update_status_register_flags(self.y_register);
     }
 
-    pub fn sta(&mut self, mode: &AddressingMode){
+    fn sta(&mut self, mode: &AddressingMode){
         let addr = self.get_op_addr_from_mode(mode);
         self.write_memory(addr, self.a_register);
     }
 
-    pub fn tax(&mut self){
+    fn tax(&mut self){
         self.x_register = self.a_register;
         self.update_status_register_flags(self.x_register);
     }
