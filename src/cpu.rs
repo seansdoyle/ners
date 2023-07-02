@@ -99,7 +99,7 @@ impl CPU {
                 self.read_u16_memory(self.program_counter).wrapping_add(self.y_register as u16)
             }
             AddressingMode::Indirect_X => { todo!();}
-            AddressingMode::Indirect_Y => { todo!()}
+            AddressingMode::Indirect_Y => { todo!();}
             AddressingMode::NoneAddressing => panic!("mode {:?} not supported.", mode),
         }
     }
