@@ -1,4 +1,7 @@
 use crate::opcodes;
+use crate::addrmodes;
+
+use addrmodes::AddressingMode;
 
 use std::collections::HashMap;
 
@@ -13,21 +16,6 @@ bitflags! {
         const OVERFLOW          = 0b0100_0000;
         const NEGATIV           = 0b1000_0000;
     }
-}
-
-#[derive(Debug)]
-#[allow(non_camel_case_types)]
-pub enum AddressingMode {
-    Immediate,
-    ZeroPage,
-    ZeroPage_X,
-    ZeroPage_Y,
-    Absolute,
-    Absolute_X,
-    Absolute_Y,
-    Indirect_X,
-    Indirect_Y,
-    NoneAddressing,
 }
 
 pub struct CPU {
