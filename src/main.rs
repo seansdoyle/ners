@@ -1,14 +1,17 @@
-fn main() {
-    let mut cpu = CPU::new();
-    println!("Initial CPU state: ");
-    cpu.print_state();
-    cpu.lda(10);
-    cpu.print_state();
-    cpu.tax();
-    cpu.print_state();
-    cpu.lda(0);
-    cpu.print_state();
+pub mod addrmodes;
+pub mod opcodes;
+pub mod cpu;
 
-    cpu.interpret_program(vec![0xa9, 0xc0, 0xaa, 0xe8, 0x00]);
-    cpu.print_state();
+#[macro_use]
+extern crate bitflags;
+
+#[macro_use]
+extern crate lazy_static;
+
+fn main() {
+    let mut nes_cpu = cpu::CPU::new();
+    println!("Initial CPU state: ");
+    nes_cpu.load_and_run(vec![0xa9, 0xc0, 0xaa, 0xe8, 0x00]);
+    nes_cpu.print_cpu_state();
+    println!("CPU emulator done.");
 }
